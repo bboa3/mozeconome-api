@@ -1,4 +1,8 @@
-# mozeconome-api
+<p align="left">
+  <img alt="Fyle" src="https://www.ogolfim.space/uploads/images/logo-dark.png" width="160" />
+</p>
+
+# mozeconome api
 Exchange rates for Mozambican currency to foreign currencies.
 
 imagine if each people could know exactly the state of their country's economy. 
