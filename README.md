@@ -2,7 +2,7 @@
   <img alt="Fyle" src="https://github.com/bboa3/mozeconome-api/blob/main/logo.png" width="160" />
 </p>
 
-# mozeconome api
+# mozeconomia api
 Exchange rates for Mozambican currency to foreign currencies.
 
 Imagine if each people could know exactly the state of their country's economy, where the money is flowing to, inflation, etc. 
