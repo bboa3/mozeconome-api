@@ -10,3 +10,5 @@ People would be more educated about money, right? People would know what to do a
 
 Yes, That's why I'm building a website to present the whole Mozambican economy using graphics,
 so everyone without or a little knowledge of economics can interpret the graphics and be more educated about economics.
+
+### Follow me on GitHub to follow the project stages
