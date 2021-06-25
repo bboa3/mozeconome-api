@@ -5,7 +5,7 @@
 # mozeconome api
 Exchange rates for Mozambican currency to foreign currencies.
 
-imagine if each people could know exactly the state of their country's economy. 
+Imagine if each people could know exactly the state of their country's economy, where the money is flowing to, inflation, etc. 
 People would be more educated about money, right?? People would know what to do and where to use their money, right?? 
 
 Yes, That's why I'm building a website to present the whole Mozambican economy using graphics,
