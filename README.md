@@ -25,3 +25,4 @@ so everyone without or a little knowledge of economics can interpret the graphic
 ```
 
 ### Follow me on GitHub to follow the project stages
+
