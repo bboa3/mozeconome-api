@@ -1,5 +1,5 @@
 <p align="left">
-  <img alt="Fyle" src="https://github.com/bboa3/mozeconome-api/blob/main/logo.png" width="160" />
+  <img alt="mozeconomia" src="https://github.com/bboa3/mozeconome-api/blob/main/logo.png" width="160" />
 </p>
 
 # mozeconomia api
@@ -10,5 +10,18 @@ People would be more educated about money, right? People would know what to do a
 
 Yes, That's why I'm building a website to present the whole Mozambican economy using graphics,
 so everyone without or a little knowledge of economics can interpret the graphics and be more educated about economics.
+
+
+### API Usage
+```bash
+  [ ] Return exchange rate for a specific day
+  [ ] Return exchanges rates for the last number of day (index)
+```
+
+### API Work
+```bash
+  [ ] Download the file: https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf every day
+    [ ] extract exchange rate
+```
 
 ### Follow me on GitHub to follow the project stages
