@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model countries {
+  id                  Int         @id @default(autoincrement())
+  name                String      @unique
+  iso_4217            String      @unique
+  currency            currencies  @relation(fields: [currency_id], references: [id])
+  currency_id         Int
+}
+
+model currencies {
+  id                  Int     @id  @default(autoincrement())
+  name                String
+  symbol              String
+  countries           countries[]
+  exchanges           exchanges[]
+  created_at          DateTime @default(now())
+  updaded_at          DateTime @default(now())
+}
+
+
+model exchanges {
+  id                  Int     @id  @default(autoincrement())
+  buy                 Int
+  sale                Int
+  medium              Int
+  currency            currencies  @relation(fields: [currency_id], references: [id])
+  currency_id         Int
+  created_at          DateTime @default(now())
+}
