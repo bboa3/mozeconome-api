@@ -1,5 +1,5 @@
 <p align="left">
-  <img alt="Fyle" src="https://www.ogolfim.space/uploads/images/logo-dark.png" width="160" />
+  <img alt="Fyle" src="https://github.com/bboa3/mozeconome-api/blob/main/logo.png" width="160" />
 </p>
 
 # mozeconome api
