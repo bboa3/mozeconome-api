@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { resolve } from "path";
 import { DownloaderHelper } from 'node-downloader-helper';
 import { PDFNet } from '@pdftron/pdfnet-node';
+import getDateRates from '../lib/exchangeRates/getDate';
 
 const ratesPath = resolve(__dirname, '..', '..', 'files', 'ZMMIREFR.pdf');
 const dest = resolve(__dirname, '..', '..', 'files');
@@ -31,7 +32,16 @@ export default {
 
         const text = await txt.getAsText();
 
-        response.status(200).json({data: text})
+        const id = text.split('\n')[3].split(' ').join('').toLowerCase()
+        const dateRates = getDateRates(text.split('\n')[2])
+
+        const dolar = text.split('\n')[8];
+
+        response.status(200).json({data: {
+          id,
+          date: dateRates,
+          dolar: dolar
+        }})
       }
 
       PDFNet.runWithCleanup(extractText).then(() => {
