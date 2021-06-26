@@ -24,5 +24,5 @@ so everyone without or a little knowledge of economics can interpret the graphic
     [ ] extract exchange rate
 ```
 
-### Follow me on GitHub to follow the project stages
+### Follow me on GitHub to stay updated about the project
 
