@@ -21,7 +21,7 @@ so everyone without or a little knowledge of economics can interpret the graphic
 ### API Work
 ```bash
   [ ] Download the file: https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf every day
-    [ ] extract exchange rate
+    [x] extract exchange rate
 ```
 
 ### Follow me on GitHub to stay updated about the project
