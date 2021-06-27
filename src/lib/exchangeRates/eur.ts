@@ -1,17 +1,18 @@
 
 const eurRates = (text: string) => {
 
-  const buy = text.split('\n')[61];
-  
-  const sale = text.split('\n')[134];
+  const buy = text.split('\n')[61].split(',').join('.');
 
-  const medium = text.split('\n')[158];
+  const sale = text.split('\n')[134].split(',').join('.');
+
+  const medium = text.split('\n')[158].split(',').join('.');
 
 
   return {
-    buy,
-    sale,
-    medium
+    buy: Number(buy),
+    sale: Number(sale),
+    medium: Number(medium),
+    iso_4217: 'EUR'
   }
 
 }

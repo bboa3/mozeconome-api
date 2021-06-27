@@ -1,17 +1,18 @@
 
 const chfRates = (text: string) => {
 
-  const buy = text.split('\n')[57];
+  const buy = text.split('\n')[57].split(',').join('.');
   
-  const sale = text.split('\n')[130];
+  const sale = text.split('\n')[130].split(',').join('.');
 
-  const medium = text.split('\n')[154];
+  const medium = text.split('\n')[154].split(',').join('.');
 
 
   return {
-    buy,
-    sale,
-    medium
+    buy: Number(buy),
+    sale: Number(sale),
+    medium: Number(medium),
+    iso_4217: 'CHF'
   }
 
 }

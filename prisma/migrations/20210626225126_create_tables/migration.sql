@@ -48,6 +48,9 @@ CREATE UNIQUE INDEX "countries_currency_id_unique" ON "countries"("currency_id")
 -- CreateIndex
 CREATE UNIQUE INDEX "currencies.iso_4217_unique" ON "currencies"("iso_4217");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "currencies_symbols.symbol_unique" ON "currencies_symbols"("symbol");
+
 -- AddForeignKey
 ALTER TABLE "countries" ADD FOREIGN KEY ("currency_id") REFERENCES "currencies"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
