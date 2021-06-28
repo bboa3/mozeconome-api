@@ -25,5 +25,27 @@ so everyone without or a little knowledge of economics can interpret the graphic
     [x] Send me an email if there is an error downloading or extracting exchange rates
 ```
 
+## How to contribute?
+You can simply submit a pull request and I'll gladly review them and merge them if the changes are acceptable.
+ - Fork repository.
+ - I'm using AWS SES for SMTP emails. You can open an acount on thier website or use [Mailtrap](https://mailtrap.io/).
+ - create your postgres database, make sure the user/owner has permission to create another database, it'll be used by Prisma.
+ - create .env file, .env.example has all the required variable.
+ - You are ready to go!!!
+
+### Migrations
+```bash
+npm run migration:save
+# or
+yarn migration:save
+```
+### Start
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+
 ### Follow me on GitHub to stay updated about the project
 
