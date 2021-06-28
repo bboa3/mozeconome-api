@@ -20,9 +20,9 @@ so everyone without or a little knowledge of economics can interpret the graphic
 
 ### API Work
 ```bash
-  [ ] Download the file: https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf every day
+  [x] Download the file: https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf every day
     [x] extract exchange rate
-    [ ] Send me an email if there is an error downloading or extracting exchange rates
+    [x] Send me an email if there is an error downloading or extracting exchange rates
 ```
 
 ### Follow me on GitHub to stay updated about the project
