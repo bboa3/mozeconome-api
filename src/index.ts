@@ -23,7 +23,9 @@ app.use(helmet());
 app.use(express.json()); 
 
 cron.schedule('0 8 * * *', () => {
+  
   bancomocRates();
+
   }, {
     timezone: 'Africa/Harare'
   }
