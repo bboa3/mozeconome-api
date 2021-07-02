@@ -10,10 +10,21 @@ type YearInflection = {
 
 
 export default {
-  async index(request: Request, response: Response) { 
+  async index(request: Request, response: Response) {
+    const { line } = request.body;
+    const inflectionFile = request.file;
 
-    const filePath = resolve(__dirname, '..', '..', 'files', 'inhambane.xlsx');
-    const dest = resolve(__dirname, '..', 'entity', 'inflection', 'inhambane.json');
+    if(!inflectionFile) {
+      return response.status(400).json({error: 'You must provide inflection file'});
+    }
+
+    const filename = inflectionFile.filename; 
+    const name = filename.split('-')[0];
+    const year = filename.split('-')[1];
+
+    
+    const filePath = resolve(__dirname, '..', '..', 'files', filename);
+    const dest = resolve(__dirname, '..', 'entity', 'inflection', `${name}.json`);
 
     const file = xlsx.readFile(filePath);
 
@@ -29,7 +40,7 @@ export default {
 
       const inflection = JSON.parse(file);
 
-      const i2016: YearInflection = {
+      const infData: YearInflection = {
 
         mensal: data[7].filter((num: null | number) => {
           return num !== null && num !== 2016 && typeof num !== 'string'
@@ -40,68 +51,14 @@ export default {
         }),
       }
 
-      const i2017: YearInflection = {
-        mensal: data[8].filter((num: null | number) => {
-          return num !== null && num !== 2017 && typeof num !== 'string'
-        }),
-
-        homologa: data[20].filter((num: null | number) => {
-          return num !== null && num !== 2017 && typeof num !== 'string'
-        }),
-      }
-
-      const i2018: YearInflection = {
-        mensal: data[9].filter((num: null | number) => {
-          return num !== null && num !== 2018 && typeof num !== 'string'
-        }),
-
-        homologa: data[21].filter((num: null | number) => {
-          return num !== null && num !== 2018 && typeof num !== 'string'
-        }),
-      }
-
-      const i2019: YearInflection = {
-        mensal: data[10].filter((num: null | number) => {
-          return num !== null && num !== 2019 && typeof num !== 'string'
-        }),
-
-        homologa: data[22].filter((num: null | number) => {
-          return num !== null && num !== 2019 && typeof num !== 'string'
-        }),
-      }
-
-      const i2020: YearInflection = {
-        mensal: data[11].filter((num: null | number) => {
-          return num !== null && num !== 2020 && typeof num !== 'string'
-        }),
-
-        homologa: data[23].filter((num: null | number) => {
-          return num !== null && num !== 2020 && typeof num !== 'string'
-        }),
-      }
-
-      const i2021: YearInflection = {
-        mensal: data[12].filter((num: null | number) => {
-          return num !== null && num !== 2021 && typeof num !== 'string'
-        }),
-
-        homologa: data[24].filter((num: null | number) => {
-          return num !== null && num !== 2021 && typeof num !== 'string'
-        }),
-      }
-
       const updatedInflection = {
-        '2016': i2016, 
-        '2017': i2017,
-        '2018': i2018,
-        '2019': i2019,
-        '2020': i2020,
-        '2021': i2021
+        `${year}`: infData,
       }
-    
-      fs.writeFile(dest, JSON.stringify(updatedInflection), (err) => {
-        if(err) return console.log(err);
-      })
+  
+      
+      // fs.writeFile(dest, JSON.stringify(updatedInflection), (err) => {
+      //   if(err) return console.log(err);
+      // })
 
     })
 
