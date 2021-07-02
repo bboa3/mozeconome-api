@@ -12,8 +12,8 @@ type YearInflection = {
 export default {
   async index(request: Request, response: Response) { 
 
-    const filePath = resolve(__dirname, '..', '..', 'files', 'nacional.xlsx');
-    const dest = resolve(__dirname, '..', 'entity', 'inflection', 'nampula.json');
+    const filePath = resolve(__dirname, '..', '..', 'files', 'inhambane.xlsx');
+    const dest = resolve(__dirname, '..', 'entity', 'inflection', 'inhambane.json');
 
     const file = xlsx.readFile(filePath);
 
