@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ogolfim/ogolfim-server.git"
+    "url": "git+https://github.com/bboa3/mozeconome-api.git"
   },
   "keywords": [
     "ogolfim"
@@ -22,9 +22,9 @@
   "author": "Arlindo Boa",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ogolfim/ogolfim-server/issues"
+    "url": "https://github.com/bboa3/mozeconome-api/issues"
   },
-  "homepage": "https://ogolfim.com/",
+  "homepage": "https://www.mozeconomia.co.mz/",
   "dependencies": {
     "@pdftron/pdfnet-node": "*",
     "@prisma/client": "^2.25.0",
@@ -40,6 +40,7 @@
     "node-downloader-helper": "^1.0.18",
     "nodemailer": "^6.6.2",
     "prisma": "^2.25.0",
+    "xlsx": "^0.17.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {

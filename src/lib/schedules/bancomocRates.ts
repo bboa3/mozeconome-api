@@ -30,7 +30,7 @@ const bancomocRates = () => {
     
     const msg = CreateMessage({
       code: 'BancomocDownloadRetry',
-      error: 'Não foi possível fazer o download do arquivo https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf'
+      error: `Não foi possível fazer o download do arquivo ${url}`
     })
     sendMail(msg);
 
@@ -39,7 +39,7 @@ const bancomocRates = () => {
     
     const msg = CreateMessage({
       code: 'BancomocDownloadError',
-      error: 'Não foi possível fazer o download do arquivo https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf'
+      error: `Não foi possível fazer o download do arquivo ${url}`
     })
     
     sendMail(msg);
@@ -89,7 +89,7 @@ const bancomocRates = () => {
       const msg = CreateMessage({
         code: 'BancomocDownloadReading',
         error: `
-          Erro lendo o arquivo https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf
+          Erro lendo o arquivo ${url}
 
           Error: ${String(err)}
         `
