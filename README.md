@@ -14,8 +14,10 @@ so everyone without or a little knowledge of economics can interpret the graphic
 
 ### API Usage
 ```bash
-  [ ] Return exchange rate for a specific day
-  [ ] Return exchanges rates for the last number of day (index)
+  [ ] request exchange rates for a specific day
+  [ ] request exchanges rates for the last days (index)
+  [ ] request monthly inflection rates
+  [ ] request yearly inflection rates
 ```
 
 ### API Work
@@ -29,7 +31,7 @@ so everyone without or a little knowledge of economics can interpret the graphic
 ## How to contribute?
 You can simply submit a pull request and I'll gladly review them and merge them if the changes are acceptable.
  - Fork repository.
- - I'm using AWS SES for SMTP emails. You can open an acount on thier website or use [Mailtrap](https://mailtrap.io/).
+ - I'm using AWS SES for SMTP emails. You can open an account on their website or use [Mailtrap](https://mailtrap.io/).
  - create your postgres database, make sure the user/owner has permission to create another database, it'll be used by Prisma.
  - create .env file, .env.example has all the required variable.
  - You are ready to go!!!
