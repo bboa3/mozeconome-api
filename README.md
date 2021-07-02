@@ -23,6 +23,7 @@ so everyone without or a little knowledge of economics can interpret the graphic
   [x] Download the file: https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf every day
     [x] extract exchange rate
     [x] Send me an email if there is an error downloading or extracting exchange rates
+  [x] Endpoint to upload file, extract inflection data and then delete file
 ```
 
 ## How to contribute?

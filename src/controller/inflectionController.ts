@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import fs from 'fs';
 import { resolve } from 'path';
 import xlsx from 'xlsx';
+import isRawNumber from '../validations/rawNumber';
 
 type YearInflection = {
   mensal: number[],
@@ -11,16 +12,18 @@ type YearInflection = {
 
 export default {
   async index(request: Request, response: Response) {
-    const { line } = request.body;
+    const { mensalRawNumber, homologaRawNumber } = request.body;
     const inflectionFile = request.file;
 
     if(!inflectionFile) {
       return response.status(400).json({error: 'You must provide inflection file'});
     }
 
+    await isRawNumber.rawNumber({mensalRawNumber, homologaRawNumber});
+
     const filename = inflectionFile.filename; 
     const name = filename.split('-')[0];
-    const year = filename.split('-')[1];
+    const year = filename.split('-')[1].split('.')[0];
 
     
     const filePath = resolve(__dirname, '..', '..', 'files', filename);
@@ -42,26 +45,26 @@ export default {
 
       const infData: YearInflection = {
 
-        mensal: data[7].filter((num: null | number) => {
-          return num !== null && num !== 2016 && typeof num !== 'string'
+        mensal: data[mensalRawNumber].filter((num: null | number) => {
+          return num !== null && num !== Number(year) && typeof num !== 'string'
         }),
 
-        homologa: data[19].filter((num: null | number) => {
-          return num !== null && num !== 2016 && typeof num !== 'string'
+        homologa: data[homologaRawNumber].filter((num: null | number) => {
+          return num !== null && num !== Number(year) && typeof num !== 'string'
         }),
       }
 
-      const updatedInflection = {
-        `${year}`: infData,
-      }
-  
+      inflection[`${year}`] = infData;
       
-      // fs.writeFile(dest, JSON.stringify(updatedInflection), (err) => {
-      //   if(err) return console.log(err);
-      // })
+      fs.writeFile(dest, JSON.stringify(inflection), (err) => {
+        if(err) return console.log(err);
+      })
 
+      fs.unlink(filePath, (err) => {
+        if(err) return console.log(err);
+      })
+
+      response.send(inflection);
     })
-
-    response.send(data);
   }
 }
