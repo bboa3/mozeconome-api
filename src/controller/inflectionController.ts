@@ -39,7 +39,7 @@ export default {
     });
 
     fs.readFile(dest, 'utf8', (err, file) => {
-    if(err) return console.log(err);
+    if(err) return response.status(500).json(err);
 
       const inflection = JSON.parse(file);
 
@@ -57,14 +57,14 @@ export default {
       inflection[`${year}`] = infData;
       
       fs.writeFile(dest, JSON.stringify(inflection), (err) => {
-        if(err) return console.log(err);
+        if(err) return response.status(500).json(err);
       })
 
       fs.unlink(filePath, (err) => {
-        if(err) return console.log(err);
+        if(err) return response.status(500).json(err);
       })
 
-      response.send(inflection);
+      response.status(200).json(inflection);
     })
   }
 }

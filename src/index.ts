@@ -8,7 +8,7 @@ import { config } from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
 import routes from './routes';
 
-import bancomocRates from './lib/schedules/bancomocRates';
+import bancomocRates from './lib/schedules/bancoRates';
 import errorHandler from './validations/handler/handler';
 
 
