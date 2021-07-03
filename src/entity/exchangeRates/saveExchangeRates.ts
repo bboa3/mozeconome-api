@@ -33,7 +33,7 @@ const saveExchangeRates = async ({ratesId, date, rates}: ExchangeRates) => {
   prisma.rates.createMany({
     data: exchangeRates
   })
-  .then(re => console.log(re))
+  .then(re => {})
   .catch(err => console.log(err))
 }
 

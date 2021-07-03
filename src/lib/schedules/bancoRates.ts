@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import fs from 'fs';
 import { DownloaderHelper } from 'node-downloader-helper';
 import { PDFNet } from '@pdftron/pdfnet-node';
 import getDateRates from '../exchangeRates/getDate';
@@ -14,8 +15,18 @@ import sendMail from "../../services/sendMail";
 
 const ratesPath = resolve(__dirname, '..', '..', '..', 'files', 'ZMMIREFR.pdf');
 const dest = resolve(__dirname, '..', '..', '..', 'files');
-const url = 'https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf'
+const url = 'https://www.bancomoc.mz/Files/REFR/ZMMIREFR.pdf';
 
+
+const msgRetry = CreateMessage({
+  code: 'BancomocDownloadRetry',
+  error: `Não foi possível fazer o download do arquivo ${url}`
+})
+
+const msgError = CreateMessage({
+  code: 'BancomocDownloadError',
+  error: `Não foi possível fazer o download do arquivo ${url}`
+})
 
 const bancomocRates = () => {
   const dl = new DownloaderHelper(url, dest, {
@@ -23,26 +34,17 @@ const bancomocRates = () => {
       maxRetries: 3,
       delay: 1000
     },
-    override: false
+    override: true
   });
   
   dl.on('retry', () => {
     
-    const msg = CreateMessage({
-      code: 'BancomocDownloadRetry',
-      error: `Não foi possível fazer o download do arquivo ${url}`
-    })
-    sendMail(msg);
+    sendMail(msgRetry);
 
   })
   dl.on('error', (err) => {
     
-    const msg = CreateMessage({
-      code: 'BancomocDownloadError',
-      error: `Não foi possível fazer o download do arquivo ${url}`
-    })
-    
-    sendMail(msg);
+    sendMail(msgError);
 
   })
   
@@ -65,7 +67,7 @@ const bancomocRates = () => {
       const text = await txt.getAsText();
       
       const id = text.split('\n')[3].split(' ').join('').toLowerCase();
-      const dateRates = getDateRates(text.split('\n')[2]);
+      const dateRates = getDateRates(text);
       
       const ratesInfo = await findRatesInfo(id);
       
@@ -78,7 +80,7 @@ const bancomocRates = () => {
         date: dateRates,
         rates: getExchangeRates(text)
       }
-      
+
       await saveExchangeRates(exchangeRates);
     }
     
@@ -90,7 +92,6 @@ const bancomocRates = () => {
         code: 'BancomocDownloadReading',
         error: `
           Erro lendo o arquivo ${url}
-
           Error: ${String(err)}
         `
       })

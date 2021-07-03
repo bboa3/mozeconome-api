@@ -9,9 +9,8 @@ type YearInflection = {
   homologa: number[]
 }
 
-
 export default {
-  async index(request: Request, response: Response) {
+  async create(request: Request, response: Response) {
     const { mensalRawNumber, homologaRawNumber } = request.body;
     const inflectionFile = request.file;
 

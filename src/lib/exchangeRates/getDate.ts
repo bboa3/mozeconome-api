@@ -1,20 +1,21 @@
-import { months } from "../../views/dateFormatar";
 
-const getDateRates = (line3: string) => {
+const getDateRates = (text: string) => {
 
-  const date = line3.split(' ');
+  const line = text.split('\n')[99].split(' ');
 
-  const year = Number(date[10]);
-  const day = Number(date[6]);
-  const month = date[8];
 
-  function monthNumber() {
-    return months.findIndex(mon => {
-      return month.toLowerCase() === mon.toLowerCase()
-    })
-  }
+  const date = line[1].split('.');
+  const time = line[2].split(':');
 
-  return new Date(year, monthNumber(), day);
+  const year = Number(date[2]);
+  const month = Number(date[1]) - 1;
+  const day = Number(date[0]);
+
+  const hours = Number(time[0]);
+  const minutes = Number(time[1]);
+  const seconds = Number(time[2]);
+
+  return new Date(year, month, day, hours, minutes, seconds);
 }
 
 export default getDateRates;

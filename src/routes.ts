@@ -9,9 +9,10 @@ import inflectionFileConfig from './config/inflectionFile';
 const routes = Router(); 
 const inflectionFile = multer(inflectionFileConfig);
 
-routes.get('rates', exchangeRatesController.index);
+routes.get('/rates/:iso_4217', exchangeRatesController.index);
+routes.get('/rates/:iso_4217/:take', exchangeRatesController.list);
 
-routes.get('bancoRates', extractRatesController.index); // Need authentication to be used
-routes.post('/inflection/save', inflectionFile.single('file'), inflectionController.index); // Need authentication to be used
+routes.get('/banco-rates', extractRatesController.index); // Need authentication to be used
+routes.post('/inflection/save', inflectionFile.single('file'), inflectionController.create); // Need authentication to be used
 
 export default routes;  
