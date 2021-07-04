@@ -13,7 +13,7 @@ const errorhandler: ErrorRequestHandler = (error, request, response, next) => {
       errors[err.path!] = err.errors;
     })
 
-    return response.status(400).json({message: 'Error de validação', errors})
+    return response.status(400).json({message: 'Validation error', errors})
   }
   console.log(error);
 
