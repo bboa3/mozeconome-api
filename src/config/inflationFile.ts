@@ -1,7 +1,7 @@
 import multer, {FileFilterCallback} from 'multer';
 import path from 'path';
 import { Request } from 'express';
-import InflectionFilename from '../validations/inflectionFile';
+import InflationFilename from '../validations/inflationFile';
 
 export default {
   storage: multer.diskStorage({
@@ -21,7 +21,7 @@ export default {
       'application/vnd.ms-excel'
     ]
 
-    if(!InflectionFilename.validator(file.originalname)) {
+    if(!InflationFilename.validator(file.originalname)) {
       cb(null, false);
 
       return cb(

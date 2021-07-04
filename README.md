@@ -15,9 +15,9 @@ so everyone without or a little knowledge of economics can interpret the graphic
 ### API Usage
 ```bash
   [x] request exchanges rates for the current day, last 30 0r more days
-  [ ] request monthly inflection rates
-  [ ] request yearly inflection rates
-  [ ] convert HTML to pdf for graphics download
+  [x] request monthly inflation rates
+  [x] request yearly inflation rates
+  [ ] convert HTML to pdf for graphs download
 ```
 
 ### API Work

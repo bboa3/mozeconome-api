@@ -1,5 +1,4 @@
 import { resolve } from "path";
-import fs from 'fs';
 import { DownloaderHelper } from 'node-downloader-helper';
 import { PDFNet } from '@pdftron/pdfnet-node';
 import getDateRates from '../exchangeRates/getDate';

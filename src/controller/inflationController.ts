@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import xlsx from 'xlsx';
 import isRawNumber from '../validations/rawNumber';
 
-type YearInflection = {
+type YearInflation = {
   mensal: number[],
   homologa: number[]
 }
@@ -12,21 +12,21 @@ type YearInflection = {
 export default {
   async create(request: Request, response: Response) {
     const { mensalRawNumber, homologaRawNumber } = request.body;
-    const inflectionFile = request.file;
+    const inflationFile = request.file;
 
-    if(!inflectionFile) {
-      return response.status(400).json({error: 'You must provide inflection file'});
+    if(!inflationFile) {
+      return response.status(400).json({error: 'You must provide inflation file'});
     }
 
     await isRawNumber.rawNumber({mensalRawNumber, homologaRawNumber});
 
-    const filename = inflectionFile.filename; 
+    const filename = inflationFile.filename; 
     const name = filename.split('-')[0];
     const year = filename.split('-')[1].split('.')[0];
 
     
     const filePath = resolve(__dirname, '..', '..', 'files', filename);
-    const dest = resolve(__dirname, '..', 'entity', 'inflection', `${name}.json`);
+    const dest = resolve(__dirname, '..', 'entity', 'inflation', `${name}.json`);
 
     const file = xlsx.readFile(filePath);
 
@@ -40,9 +40,9 @@ export default {
     fs.readFile(dest, 'utf8', (err, file) => {
     if(err) return response.status(500).json(err);
 
-      const inflection = JSON.parse(file);
+      const inflation = JSON.parse(file);
 
-      const infData: YearInflection = {
+      const infData: YearInflation = {
 
         mensal: data[mensalRawNumber].filter((num: null | number) => {
           return num !== null && num !== Number(year) && typeof num !== 'string'
@@ -53,9 +53,9 @@ export default {
         }),
       }
 
-      inflection[`${year}`] = infData;
+      inflation[`${year}`] = infData;
       
-      fs.writeFile(dest, JSON.stringify(inflection), (err) => {
+      fs.writeFile(dest, JSON.stringify(inflation), (err) => {
         if(err) return response.status(500).json(err);
       })
 
@@ -63,7 +63,7 @@ export default {
         if(err) return response.status(500).json(err);
       })
 
-      response.status(200).json(inflection);
+      response.status(200).json(inflation);
     })
   }
 }
