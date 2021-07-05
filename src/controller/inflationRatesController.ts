@@ -16,9 +16,7 @@ export default {
     fs.readFile(path, 'utf8', (err, file) => {
     if(err) return response.status(500).json(err);
 
-      const inflation = JSON.parse(file);
-
-      response.status(200).json(inflation);
+      response.status(200).send(file);
     })
   },
 }
