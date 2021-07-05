@@ -9,7 +9,8 @@ import dotenvExpand from 'dotenv-expand';
 import routes from './routes';
 
 import swaggerUI from 'swagger-ui-express';
-import swaggerSpecs from './config/swagger';
+import swaggerSpecs from './config/swagger/swaggerSpecs';
+import swaggerUiOpt from './config/swagger/swaggerUI';
 
 import bancoRates from './lib/schedules/bancoRates';
 import errorHandler from './validations/handler/handler';
@@ -24,7 +25,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json()); 
 
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecs, swaggerUiOpt));
 
 cron.schedule('0 8 * * *', () => {
   
