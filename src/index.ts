@@ -8,7 +8,10 @@ import { config } from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
 import routes from './routes';
 
-import bancomocRates from './lib/schedules/bancoRates';
+import swaggerUI from 'swagger-ui-express';
+import swaggerSpecs from './config/swagger';
+
+import bancoRates from './lib/schedules/bancoRates';
 import errorHandler from './validations/handler/handler';
 
 
@@ -18,13 +21,14 @@ const app = express();
 
 app.use(cors());
 
-
 app.use(helmet());
 app.use(express.json()); 
 
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecs));
+
 cron.schedule('0 8 * * *', () => {
   
-  bancomocRates();
+  bancoRates();
 
   }, {
     timezone: 'Africa/Harare'

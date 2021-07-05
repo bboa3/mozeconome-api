@@ -1,17 +1,40 @@
 import { Request, Response } from 'express';
-import findISO_4217 from '../entity/exchangeRates/findISO_4217';
+import exchangeRatesValidator from '../validations/exchangeRates';
+import { resolve } from 'path';
+import fs from 'fs';
 
+const currenciesPath = resolve(__dirname, '..', 'entity', 'currencies', 'currencies.json');
 
 export default {
   async index(request: Request, response: Response) { 
+    const { iso_4217 } = request.params;
 
-    const iso = await findISO_4217();
+    await exchangeRatesValidator.iso(iso_4217);
 
-    if(!iso) 
-    return response.status(404).json({error: 'No ISO_4217 found'});
+    fs.readFile(currenciesPath, 'utf8', (err, file) => {
+      if(err) return console.log(err);
 
-    const iso_4217 = iso.rates.map(rate => rate.iso_4217);
+      const currencies = JSON.parse(file);
 
-    response.status(200).json(iso_4217);
+      const currency = currencies[iso_4217];
+
+      if(!currency) 
+      return response.status(404).json({error: 'Currency not found'})
+
+      response.status(200).json(currency);
+    })
+  },
+
+  async list(request: Request, response: Response) { 
+
+    fs.readFile(currenciesPath, 'utf8', (err, file) => {
+      if(err) return console.log(err);
+
+      const currencies = JSON.parse(file);
+
+      const keys = Object.keys(currencies);
+
+      response.status(200).json(keys);
+    })
   }
 }

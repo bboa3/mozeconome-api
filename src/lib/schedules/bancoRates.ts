@@ -27,7 +27,7 @@ const msgError = CreateMessage({
   error: `Não foi possível fazer o download do arquivo ${url}`
 })
 
-const bancomocRates = () => {
+const bancoRates = () => {
   const dl = new DownloaderHelper(url, dest, {
     retry: {
       maxRetries: 3,
@@ -78,7 +78,7 @@ const bancomocRates = () => {
         ratesId: id,
         date: dateRates,
         rates: getExchangeRates(text)
-      }
+      }      
 
       await saveExchangeRates(exchangeRates);
     }
@@ -102,4 +102,4 @@ const bancomocRates = () => {
   dl.start();
 }
 
-export default bancomocRates;
+export default bancoRates;
