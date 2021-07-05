@@ -33,7 +33,7 @@ export default {
       const currencies = JSON.parse(file);
 
       const keys = Object.keys(currencies);
-
+      
       response.status(200).json(keys);
     })
   }

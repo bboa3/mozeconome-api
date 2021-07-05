@@ -1,48 +1,50 @@
 {
   "MZN": {
     "country": "Moçambique",
-		"name": "Mozambican Metical",
-		"iso": {
-			"code": "MZN",
-			"number": "943"
-		},
-		"units": {
-			"major": {
-				"name": "metical",
-				"symbol": "MT"
-			},
-			"minor": {
-				"name": "centavo",
-				"symbol": "",
-				"majorValue": 0.01
-			}
-		},
-		"banknotes": {
-			"frequent": [
-				"MT20",
-				"MT50",
-				"MT100",
-				"MT200",
-				"MT500",
-				"MT1000"
-			],
-			"rare": []
-		},
-		"coins": {
-			"frequent": [
-				"MT1",
-				"MT2",
-				"MT5",
-				"MT10",
-				"5",
-				"10",
-				"50"
-			],
-			"rare": []
-		}
-	},
+    "flag": "https://flagcdn.com/w20/mz.png",
+    "name": "Mozambican Metical",
+    "iso": {
+      "code": "MZN",
+      "number": "943"
+    },
+    "units": {
+      "major": {
+        "name": "metical",
+        "symbol": "MT"
+      },
+      "minor": {
+        "name": "centavo",
+        "symbol": "",
+        "majorValue": 0.01
+      }
+    },
+    "banknotes": {
+      "frequent": [
+        "MT20",
+        "MT50",
+        "MT100",
+        "MT200",
+        "MT500",
+        "MT1000"
+      ],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [
+        "MT1",
+        "MT2",
+        "MT5",
+        "MT10",
+        "5",
+        "10",
+        "50"
+      ],
+      "rare": []
+    }
+  },
   "USD": {
     "country": "Estados Unidos",
+    "flag": "https://flagcdn.com/w20/us.png",
     "name": "US Dollar",
     "iso": {
       "code": "USD",
@@ -87,6 +89,7 @@
   },
   "ZAR": {
     "country": "Àfrica do Sul",
+    "flag": "https://flagcdn.com/w20/za.png",
     "name": "South African Rand",
     "iso": {
       "code": "ZAR",
@@ -127,6 +130,7 @@
   },
   "AED": {
     "country": "Emirados Árabes Unidos",
+    "flag": "https://flagcdn.com/w20/ae.png",
     "name": "Emirati Dirham",
     "iso": {
       "code": "AED",
@@ -169,6 +173,7 @@
   },
   "AUD": {
     "country": "Austrália",
+    "flag": "https://flagcdn.com/w20/au.png",
     "name": "Australian Dollar",
     "iso": {
       "code": "AUD",
@@ -209,6 +214,7 @@
   },
   "BRL": {
     "country": "Brasil",
+    "flag": "https://flagcdn.com/w20/br.png",
     "name": "Brazilian real",
     "iso": {
       "code": "BRL",
@@ -253,6 +259,7 @@
   },
   "BWP": {
     "country": "Botswana",
+    "flag": "https://flagcdn.com/w20/bw.png",
     "name": "Botswana Pula",
     "iso": {
       "code": "BWP",
@@ -294,6 +301,7 @@
   },
   "CAD": {
     "country": "Canada",
+    "flag": "https://flagcdn.com/w20/ca.png",
     "name": "Canadian Dollar",
     "iso": {
       "code": "CAD",
@@ -341,6 +349,7 @@
   },
   "CHF": {
     "country": "Suíça",
+    "flag": "https://flagcdn.com/w20/ch.png",
     "name": "Swiss Franc",
     "iso": {
       "code": "CHF",
@@ -383,6 +392,7 @@
   },
   "CNY": {
     "country": "China",
+    "flag": "https://flagcdn.com/w20/cn.png",
     "name": "Yuan or chinese renminbi",
     "iso": {
       "code": "CNY",
@@ -437,6 +447,7 @@
   },
   "DKK": {
     "country": "Dinamarca",
+    "flag": "https://flagcdn.com/w20/dk.png",
     "name": "Danish krone",
     "iso": {
       "code": "DKK",
@@ -477,6 +488,7 @@
   },
   "EUR": {
     "country": "União Europeia",
+    "flag": "https://flagcdn.com/w20/eu.png",
     "name": "Euro",
     "iso": {
       "code": "EUR",
@@ -523,6 +535,7 @@
   },
   "GBP": {
     "country": "Inglaterra",
+    "flag": "https://flagcdn.com/w20/gb-eng.png",
     "name": "British Pound",
     "iso": {
       "code": "GBP",
@@ -566,6 +579,7 @@
   },
   "KWD": {
     "country": "Kuwait",
+    "flag": "https://flagcdn.com/w20/kw.png",
     "name": "Kuwaiti Dinar",
     "iso": {
       "code": "KWD",
@@ -606,6 +620,7 @@
   },
   "MUR": {
     "country": "Mauricias",
+    "flag": "https://flagcdn.com/w20/mu.png",
     "name": "Mauritian rupee",
     "iso": {
       "code": "MUR",
@@ -646,6 +661,7 @@
   },
   "NOK": {
     "country": "Noruega",
+    "flag": "https://flagcdn.com/w20/no.png",
     "name": "Norwegian krone",
     "iso": {
       "code": "NOK",
@@ -684,6 +700,7 @@
   },
   "NZD": {
     "country": "Nova Zelândia",
+    "flag": "https://flagcdn.com/w20/nz.png",
     "name": "New Zealand Dollar",
     "iso": {
       "code": "NZD",
@@ -723,6 +740,7 @@
   },
   "SEK": {
     "country": "Suécia",
+    "flag": "https://flagcdn.com/w20/se.png",
     "name": "Swedish krona",
     "iso": {
       "code": "SEK",
@@ -761,6 +779,7 @@
   },
   "ZMW": {
     "country": "Zâmbia",
+    "flag": "https://flagcdn.com/w20/zm.png",
     "name": "Zambian Kwacha",
     "iso": {
       "code": "ZMW",

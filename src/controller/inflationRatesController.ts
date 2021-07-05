@@ -14,9 +14,9 @@ export default {
     const path = resolve(__dirname, '..', 'entity', 'inflation', `${loc}.json`);
 
     fs.readFile(path, 'utf8', (err, file) => {
-    if(err) return response.status(500).json(err);
+      if(err) return response.status(500).json(err);
 
       response.status(200).send(file);
     })
   },
-}
+} 

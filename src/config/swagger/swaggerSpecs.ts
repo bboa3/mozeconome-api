@@ -13,7 +13,7 @@ const options = {
 
         Once this API is deployed, will be open to anyone or any project, it is an open-source project.
 
-        If you have any doubt or issues, please get me on LinkedIn Linkedin: https://www.linkedin.com/in/arlindo-boa-23048b1b0/ or by email: arlindojosboa@gmail.com
+        If you have any doubt issues or new idea, please get me on LinkedIn Linkedin: https://www.linkedin.com/in/arlindo-boa-23048b1b0/ or by email: arlindojosboa@gmail.com
       `
     },
     servers: [
