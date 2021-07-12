@@ -5,7 +5,7 @@ const options = {
   swaggerDefinition: {
     openapi: '3.0.1',
     info: {
-      title: 'MozEconomia',
+      title: 'Mozeconomia',
       version: '1.0.0',
       description: `
         MozEconomia is a project to display information on website about the Mozambican economy in graphs and exchange rates. 
