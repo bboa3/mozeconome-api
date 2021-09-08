@@ -27,7 +27,7 @@
   "homepage": "https://www.mozeconomia.co.mz/",
   "dependencies": {
     "@pdftron/pdfnet-node": "*",
-    "@prisma/client": "^2.25.0",
+    "@prisma/client": "^2.30.3",
     "cors": "^2.8.5",
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
@@ -40,7 +40,7 @@
     "node-cron": "^3.0.0",
     "node-downloader-helper": "^1.0.18",
     "nodemailer": "^6.6.2",
-    "prisma": "^2.25.0",
+    "prisma": "^2.30.3",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.1.6",
     "xlsx": "^0.17.0",

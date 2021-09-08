@@ -3,7 +3,7 @@ import exchangeRatesValidator from '../validations/exchangeRates';
 import { resolve } from 'path';
 import fs from 'fs';
 
-const currenciesPath = resolve(__dirname, '..', 'entity', 'currencies', 'currencies.json');
+const currenciesPath = resolve(__dirname, '..', '..','files', 'currencies', 'currencies.json');
 
 export default {
   async index(request: Request, response: Response) { 

@@ -39,6 +39,8 @@ cron.schedule('0 8 * * *', () => {
 app.use('/api/v1', routes);
 
 app.use('/files', express.static(path.join(__dirname, '..', 'files')));
+app.use('/files/inflation', express.static(path.join(__dirname, '..', 'files', 'inflation')));
+app.use('/files/currencies', express.static(path.join(__dirname, '..', 'files', 'currencies')));
 
 app.use(errorHandler);
 

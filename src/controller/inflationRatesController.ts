@@ -11,7 +11,7 @@ export default {
 
     await locValidator.loc(loc);
 
-    const path = resolve(__dirname, '..', 'entity', 'inflation', `${loc}.json`);
+    const path = resolve(__dirname, '..', '..','files', 'inflation', `${loc}.json`);
 
     fs.readFile(path, 'utf8', (err, file) => {
       if(err) return response.status(500).json(err);
