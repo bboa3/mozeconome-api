@@ -4,7 +4,8 @@ import { resolve } from 'path';
 import xlsx from 'xlsx';
 import isRawNumber from '../validations/rawNumber';
 
-type YearInflation = {
+type Inflation = {
+  year: number
   mensal: number[],
   homologa: number[]
 }
@@ -26,36 +27,42 @@ export default {
 
     
     const filePath = resolve(__dirname, '..', '..', 'files', filename);
-    const dest = resolve(__dirname, '..', 'entity', 'inflation', `${name}.json`);
+    const dest = resolve(__dirname, '..', '..', 'files', 'inflation', `${name}.json`);
 
     const file = xlsx.readFile(filePath);
 
     const firstTabName = file.SheetNames[0];
-
+    
     const data: any = xlsx.utils.sheet_to_json(file.Sheets[firstTabName], {
       blankrows: false,
       header: 1,
     });
 
     fs.readFile(dest, 'utf8', (err, file) => {
-    if(err) return response.status(500).json(err);
+      if(err) return response.status(500).json(err);
 
-      const inflation = JSON.parse(file);
+      const parsedFile: Inflation[] = JSON.parse(file);
 
-      const infData: YearInflation = {
+      const inflationData = parsedFile.map((inflationOneYear) => {  
 
-        mensal: data[mensalRawNumber].filter((num: null | number) => {
-          return num !== null && num !== Number(year) && typeof num !== 'string'
-        }),
+        if(inflationOneYear.year === Number(year)) {
+          return {
+            year: Number(year),
 
-        homologa: data[homologaRawNumber].filter((num: null | number) => {
-          return num !== null && num !== Number(year) && typeof num !== 'string'
-        }),
-      }
-
-      inflation[`${year}`] = infData;
+            mensal: data[mensalRawNumber].filter((num: number | null) => {
+              return num !== null && num !== Number(year) && typeof num !== 'string'
+            }),
+  
+            homologa: data[homologaRawNumber].filter((num: null | number) => {
+              return num !== null && num !== Number(year) && typeof num !== 'string'
+            }),
+          }
+        } else {
+          return inflationOneYear
+        }
+      })
       
-      fs.writeFile(dest, JSON.stringify(inflation), (err) => {
+      fs.writeFile(dest, JSON.stringify(inflationData), (err) => {
         if(err) return response.status(500).json(err);
       })
 
@@ -63,7 +70,7 @@ export default {
         if(err) return response.status(500).json(err);
       })
 
-      response.status(200).json(inflation);
+      response.status(200).json(inflationData);
     })
   }
 }
