@@ -46,6 +46,7 @@ export default {
       const inflationData = parsedFile.map((inflationOneYear) => {  
 
         if(inflationOneYear.year === Number(year)) {
+          
           return {
             year: Number(year),
 

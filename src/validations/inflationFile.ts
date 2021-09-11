@@ -26,7 +26,7 @@ export default {
       name.match(/pemba/i)||
       name.match(/quelimane/i)||
       name.match(/tete/i)||
-      name.match(/xai-xai/i)
+      name.match(/xai_xai/i)
     ) {
       return true
     }
