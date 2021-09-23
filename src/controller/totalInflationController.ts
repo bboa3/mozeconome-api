@@ -41,9 +41,10 @@ export default {
     fs.readFile(dest, 'utf8', (err, file) => {
       if(err) return response.status(500).json(err);
 
-      const parsedFile: Inflation[] = JSON.parse(file);
+      const parsedFile = JSON.parse(file);
+      const total: Inflation[] = parsedFile.total;
 
-      const inflationData = parsedFile.map((inflationOneYear) => {  
+      const totalInflation = total.map((inflationOneYear) => {  
 
         if(inflationOneYear.year === Number(year)) {
           
@@ -62,6 +63,8 @@ export default {
           return inflationOneYear
         }
       })
+
+      const inflationData = {...parsedFile, total: totalInflation}  
       
       fs.writeFile(dest, JSON.stringify(inflationData), (err) => {
         if(err) return response.status(500).json(err);

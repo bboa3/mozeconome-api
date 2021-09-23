@@ -1,1 +1,55 @@
-[{"year":2016},{"year":2017},{"year":2018,"mensal":[-0.71,-0.07,0.3,0.7,0.3,-0.82,0.25,-0.03,0.19,0.1,0.42,0.24],"homologa":[0,0,0,0,0,0,0,0,0,0,0,0]},{"year":2019,"mensal":[0.21,0.48,-0.02,-0.19,-0.51,-0.18,0.96,1.36,1.49,0.66,-0.03,1.45],"homologa":[1.06,2.28,2.03,1.13,0.31,0.96,1.69,3.09,4.44,5.02,4.55,5.81]},{"year":2020,"mensal":[0.68,0.34,0.31,0.04,-0.23,-0.21,1.56,0.33,0.65,0.22,0.89,0.77],"homologa":[6.31,6.15,6.5,6.76,7.05,7.02,7.64,6.55,5.66,5.2,6.17,5.45]},{"year":2021,"mensal":[0.98,1.42,0.65,0.8,-0.05],"homologa":[5.76,6.9,7.27,8.07,8.28]}]
+
+
+{
+    "total": [{"year":2016},{"year":2017},{"year":2018,"mensal":[-0.71,-0.07,0.3,0.7,0.3,-0.82,0.25,-0.03,0.19,0.1,0.42,0.24],"homologa":[0,0,0,0,0,0,0,0,0,0,0,0]},{"year":2019,"mensal":[0.21,0.48,-0.02,-0.19,-0.51,-0.18,0.96,1.36,1.49,0.66,-0.03,1.45],"homologa":[1.06,2.28,2.03,1.13,0.31,0.96,1.69,3.09,4.44,5.02,4.55,5.81]},{"year":2020,"mensal":[0.68,0.34,0.31,0.04,-0.23,-0.21,1.56,0.33,0.65,0.22,0.89,0.77],"homologa":[6.31,6.15,6.5,6.76,7.05,7.02,7.64,6.55,5.66,5.2,6.17,5.45]},{"year":2021,"mensal":[0.98,1.42,0.65,0.8,-0.05],"homologa":[5.76,6.9,7.27,8.07,8.28]}]    ,
+    "products": [
+        {
+          "name": "Produtos alimentares e bebidas não alcoólicas",
+          "data": []
+        },
+        {
+          "name": "Bebidas alcoólicas e tabaco",
+          "data": []
+        },
+        {
+          "name": "Vestuário e calçado",
+          "data": []
+        },
+        {
+          "name": "Habitação, água, electricidade, gás e outros combustíveis",
+          "data": []
+        },
+        {
+          "name": "Mobiliário, artigos de decoração, equipamento doméstico e manutenção corrente da habitação",
+          "data": []
+        },
+        {
+          "name": "Saúde",
+          "data": []
+        },
+        {
+          "name": "Transportes",
+          "data": []
+        },
+        {
+          "name": "Comunicações",
+          "data": []
+        },
+        {
+          "name": "Lazer, recreação e cultura",
+          "data": []
+        },
+        {
+          "name": "Educação",
+          "data": []
+        },
+        {
+          "name": "Restaurantes, hotéis, cafés e similares ",
+          "data": []
+        },
+        {
+          "name": "Bens e serviços diversos",
+          "data": []
+        }
+    ]
+}

@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
 import extractRatesController from './controller/extractRatesController';
-import inflationController from './controller/inflationController';
+import totalInflationController from './controller/totalInflationController';
+import productsInflationController from './controller/productsInflationController';
 import exchangeRatesController from './controller/exchangeRatesController';
 import inflationRatesController from './controller/inflationRatesController';
 import exchangeRatesAvailableController from './controller/exchangeRatesAvailableController';
@@ -153,7 +154,8 @@ routes.get('/exchange/:iso_4217/:take', exchangeRatesController.list);
  */
 routes.get('/inflation/:loc', inflationRatesController.index);
 
-routes.get('/banco-rates', extractRatesController.index); // Need authentication to be used
-routes.post('/inflation/save', inflationFile.single('file'), inflationController.create); // Need authentication to be used
+routes.get('/banco-rates', extractRatesController.index); // Need authentication
+routes.post('/inflation/total', inflationFile.single('file'), totalInflationController.create); // Need authentication 
+routes.post('/inflation/products', inflationFile.single('file'), productsInflationController.create); // Need authentication 
 
 export default routes;
