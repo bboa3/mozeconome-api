@@ -13,7 +13,6 @@ interface ProductInflation {
   name: string
   data: ProductData[]
 }
-
 export default {
   async create(request: Request, response: Response) {
     const { dataArrayIndex, productArrayIndex, year17, year18, year19, year20, year21 } = request.body;
@@ -39,16 +38,16 @@ export default {
     const data: any = xlsx.utils.sheet_to_json(file.Sheets[firstTabName], {
       blankrows: false,
       header: 1,
-    })[dataArrayIndex]                                                          
+    })[Number(dataArrayIndex)]                                                          
 
 
     // 2017
     const count2017 = data.filter((d: number) => d === year17).length;    
     
     if(count2017 > 1) 
-    return response.status(400).json({error: 'You have more than one of that index.'});
+    return response.status(400).json({error: `You have more than one of that index. ${year17}`});
     
-    const startIndex2017 = data.indexOf(year17);                       
+    const startIndex2017 = data.indexOf(Number(year17));                       
 
     const i2017 = data.splice(startIndex2017, 12);
 
@@ -56,9 +55,9 @@ export default {
     const count2018 = data.filter((d: number) => d === year18).length;      
     
     if(count2018 > 1) 
-    return response.status(400).json({error: 'You have more than one of that index.'});
+    return response.status(400).json({error: `You have more than one of that index. ${year18}`});
     
-    const startIndex2018 = data.indexOf(year18);                         
+    const startIndex2018 = data.indexOf(Number(year18));                         
 
     const i2018 = data.splice(startIndex2018, 12);
 
@@ -66,29 +65,29 @@ export default {
     const count2019 = data.filter((d: number) => d === year19).length;    
     
     if(count2019 > 1) 
-    return response.status(400).json({error: 'You have more than one of that index.'});
+    return response.status(400).json({error: `You have more than one of that index. ${year19}`});
     
-    const startIndex2019 = data.indexOf(year19);                  
+    const startIndex2019 = data.indexOf(Number(year19));                  
 
     const i2019 = data.splice(startIndex2019, 12);
 
     // 2020
-    const count2020 = data.filter((d: number) => d === year20).length;      
+    const count2020 = data.filter((d: number) => d === year20).length;  
     
     if(count2020 > 1) 
-    return response.status(400).json({error: 'You have more than one of that index.'});
+    return response.status(400).json({error: `You have more than one of that index. ${year20}`});
     
-    const startIndex2020 = data.indexOf(year20);                       
+    const startIndex2020 = data.indexOf(Number(year20));                       
 
     const i2020 = data.splice(startIndex2020, 12);
 
     // 2021
-    const count2021 = data.filter((d: number) => d === year21).length;         
+    const count2021 = data.filter((d: number) => d === year21).length;   
     
     if(count2021 > 1)                                                          
-    return response.status(400).json({error: 'You have more than one of that index.'});
+    return response.status(400).json({error: `You have more than one of that index. ${year21}`});
     
-    const startIndex2021 = data.indexOf(year21);                                
+    const startIndex2021 = data.indexOf(Number(year21));                                
 
     const i2021 = data.splice(startIndex2021, 12);                              
 
@@ -121,7 +120,7 @@ export default {
       const parsedFile = JSON.parse(file);
       const products: ProductInflation[] = parsedFile.products;
 
-      products[productArrayIndex].data = productData                                     
+      products[Number(productArrayIndex)].data = productData                                     
 
       const inflationData = {...parsedFile, products: products}      
       
@@ -133,7 +132,7 @@ export default {
         if(err) return response.status(500).json(err);
       })
 
-      response.status(200).json(inflationData);
+      response.status(200).json(productData);
     })
   }
 }
