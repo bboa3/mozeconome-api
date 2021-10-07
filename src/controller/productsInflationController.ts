@@ -15,7 +15,7 @@ interface ProductInflation {
 }
 export default {
   async create(request: Request, response: Response) {
-    const { dataArrayIndex, productArrayIndex, year17, year18, year19, year20, year21 } = request.body;
+    const { dataArrayIndex, productArrayIndex, year16, year17, year18, year19, year20, year21 } = request.body;
     const inflationFile = request.file;
 
     if(!inflationFile) {
@@ -38,7 +38,17 @@ export default {
     const data: any = xlsx.utils.sheet_to_json(file.Sheets[firstTabName], {
       blankrows: false,
       header: 1,
-    })[Number(dataArrayIndex)]                                                          
+    })[Number(dataArrayIndex)]   
+    
+    // 2016
+    const count2016 = data.filter((d: number) => d === year16).length;    
+    
+    if(count2016 > 1) 
+    return response.status(400).json({error: `You have more than one of that index. ${year16}`});
+    
+    const startIndex2016 = data.indexOf(Number(year16));                       
+
+    const i2016 = data.splice(startIndex2016, 12);
 
 
     // 2017
@@ -92,6 +102,11 @@ export default {
     const i2021 = data.splice(startIndex2021, 12);                              
 
     const productData = [
+      {
+        year: 2016,
+        homologa: i2016
+      },
+
       {
         year: 2017,
         homologa: i2017
