@@ -40,26 +40,26 @@ export default {
       header: 1,
     })[Number(dataArrayIndex)]   
     
-    // // 2016
-    // const count2016 = data.filter((d: number) => d === year16).length;    
+    // 2016
+    const count2016 = data.filter((d: number) => d === year16).length;    
     
-    // if(count2016 > 1) 
-    // return response.status(400).json({error: `You have more than one of that index. ${year16}`});
+    if(count2016 > 1) 
+    return response.status(400).json({error: `You have more than one of that index. ${year16}`});
     
-    // const startIndex2016 = data.indexOf(Number(year16));                       
+    const startIndex2016 = data.indexOf(Number(year16));                       
 
-    // const i2016 = data.splice(startIndex2016, 12);
+    const i2016 = data.splice(startIndex2016, 12);
 
 
-    // // 2017
-    // const count2017 = data.filter((d: number) => d === year17).length;    
+    // 2017
+    const count2017 = data.filter((d: number) => d === year17).length;    
     
-    // if(count2017 > 1) 
-    // return response.status(400).json({error: `You have more than one of that index. ${year17}`});
+    if(count2017 > 1) 
+    return response.status(400).json({error: `You have more than one of that index. ${year17}`});
     
-    // const startIndex2017 = data.indexOf(Number(year17));                       
+    const startIndex2017 = data.indexOf(Number(year17));                       
 
-    // const i2017 = data.splice(startIndex2017, 12);
+    const i2017 = data.splice(startIndex2017, 12);
 
     // 2018
     const count2018 = data.filter((d: number) => d === year18).length;      
@@ -102,15 +102,15 @@ export default {
     const i2021 = data.splice(startIndex2021, 12);                              
 
     const productData = [
-      // {
-      //   year: 2016,
-      //   homologa: i2016
-      // },
+      {
+        year: 2016,
+        homologa: i2016
+      },
 
-      // {
-      //   year: 2017,
-      //   homologa: i2017
-      // },
+      {
+        year: 2017,
+        homologa: i2017
+      },
       {
         year: 2018,
         homologa: i2018
